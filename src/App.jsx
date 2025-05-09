@@ -8,9 +8,11 @@ import { Button } from 'bootstrap'
 import Buttons from './components/buttons/button'
 import Menu from './components/menu'
 import Card from './components/card'
-import Input from './components/input'
+import Input from './components/input/input'
 import Modal from './components/modal'
 import Footer from './components/footer'
+import Input2 from './components/input/input2'
+import InputFloating from './components/input/inputFloating'
 
 
 function App() {
@@ -21,6 +23,7 @@ function App() {
   const email_enviado = () => {
     alert('E-mail enviado com sucesso!');
   }
+  const [nome, setNome] = useState("")
 
   return (
     <>
@@ -46,6 +49,9 @@ function App() {
           <div className="col-12 col-md-6 mx-auto">
           <div className="mb-3">
             <Input />
+            <Input2 id ="idNome" placeholder="Digite seu nome" valor={nome} onChange={(e)=>(setNome(e.target.value))}/>
+            <p>Olá {nome}</p>
+            <InputFloating id="floatingInput" textoLabel="Digite seu e-mail" />
           </div>
             <Buttons variant = "btn btn-light" valor="Enviar" acao={email_enviado} />
           </div>
